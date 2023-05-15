@@ -25,24 +25,6 @@ navClose.addEventListener("click", () => {
 
 /*
 =============
-PopUp
-=============
- */
-const popup = document.querySelector(".popup");
-const closePopup = document.querySelector(".popup__close");
-
-if (popup) {
-  closePopup.addEventListener("click", () => {
-    popup.classList.add("hide__popup");
-  });
-
-  window.addEventListener("load", () => {
-    setTimeout(() => {
-      popup.classList.remove("hide__popup");
-    }, 500);
-  });
-}
-
 /*
 =============
 Fixed Navigation
@@ -53,8 +35,8 @@ const navBar = document.querySelector(".navigation");
 const gotoTop = document.querySelector(".goto-top");
 
 // Smooth Scroll
-Array.from(scrollLink).map(link => {
-  link.addEventListener("click", e => {
+Array.from(scrollLink).map((link) => {
+  link.addEventListener("click", (e) => {
     // Prevent Default
     e.preventDefault();
 
@@ -79,7 +61,7 @@ Array.from(scrollLink).map(link => {
 
 // Fix NavBar
 
-window.addEventListener("scroll", e => {
+window.addEventListener("scroll", (e) => {
   const scrollHeight = window.pageYOffset;
   const navHeight = navBar.getBoundingClientRect().height;
   if (scrollHeight > navHeight) {
@@ -95,28 +77,25 @@ window.addEventListener("scroll", e => {
   }
 });
 
-let login=document.querySelector('.login-form');
+let login = document.querySelector(".login-form");
 
-document.querySelector('#login-btn').onclick=()=>{
-    login.classList.toggle('active');
-   searchForm.classList.remove('active');
-    shoppingCart.classList.remove('active');
+document.querySelector("#login-btn").onclick = () => {
+  login.classList.toggle("active");
+  searchForm.classList.remove("active");
+  shoppingCart.classList.remove("active");
+};
 
-}
+let shoppingCart = document.querySelector(".shopping-cart");
 
-let shoppingCart=document.querySelector('.shopping-cart');
+document.querySelector("#cart-btn").onclick = () => {
+  shoppingCart.classList.toggle("active");
+  searchForm.classList.remove("active");
+  login.classList.remove("active");
+};
+let searchForm = document.querySelector(".search-form");
 
-document.querySelector('#cart-btn').onclick=()=>{
-    shoppingCart.classList.toggle('active');
-    searchForm.classList.remove('active');
-    login.classList.remove('active');
-
-}
-let searchForm=document.querySelector('.search-form');
-
-document.querySelector('#search-btn').onclick=()=>{
-    searchForm.classList.toggle('active');
-    shoppingCart.classList.remove('active');
-    login.classList.remove('active');
- 
-}
+document.querySelector("#search-btn").onclick = () => {
+  searchForm.classList.toggle("active");
+  shoppingCart.classList.remove("active");
+  login.classList.remove("active");
+};
